@@ -6,7 +6,7 @@
 #include <ctype.h>
 
 int main(int argc, char *argv[]){
-
+    char port[] = "41333";
     #if defined(_WIN32)
         WSADATA d;
         if(WSAStratup(MAKEWORD(2,2),&d)){
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]){
     hints.ai_flags = AI_PASSIVE;
 
     struct addrinfo *bind_address;
-    getaddrinfo(0,argv[0],&hints,&bind_address);
+    getaddrinfo(0,port,&hints,&bind_address);
 
     printf("Creating socket...\n");
     SOCKET socket_listen;
